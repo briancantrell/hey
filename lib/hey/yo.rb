@@ -18,9 +18,9 @@ module Hey
     # hasn't been set on the Hey module or Yo instance.
     #
     #  Hey::Yo.new.user "worldcup"
-    def user name
+    def user name, options = {}
       raise_for_missing_api_token!
-      post 'yo', username: name
+      post 'yo', {username: name}.merge(options)
     end
     
     # Accesses subscriber endpoints using the same API key
